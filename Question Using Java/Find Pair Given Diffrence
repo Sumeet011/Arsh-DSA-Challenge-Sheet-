@@ -1,0 +1,20 @@
+import java.util.HashSet;
+
+class Solution {
+    public int findPair(int n, int x, int[] arr) {
+        HashSet<Integer> set = new HashSet<>();
+        
+        for (int i = 0; i < n; i++) {
+            int target1 = arr[i] + x;
+            int target2 = arr[i] - x;
+            
+            if (set.contains(target1) || set.contains(target2)) {
+                return 1; // Pair found
+            }
+            
+            set.add(arr[i]); // Add current element to HashSet
+        }
+        
+        return -1; // No such pair found
+    }
+}
